@@ -1,5 +1,4 @@
 use adventofcode::{display_result, read_input};
-const LOOKUP: [[i32; 3]; 3] = [[3, 0, 6], [6, 3, 0], [0, 6, 3]];
 fn part_one(input: Vec<String>) -> i32 {
     input
         .iter()
@@ -11,7 +10,7 @@ fn part_one(input: Vec<String>) -> i32 {
             );
             let x = combination.0 - b'A';
             let y = combination.1 - b'X';
-            1 + y as i32 + LOOKUP[y as usize][x as usize % 3]
+            (1 + y + 3 * ((y + 4 - x) % 3)) as i32
         })
         .sum()
 }
